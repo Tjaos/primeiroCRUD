@@ -2,18 +2,47 @@ var dados = []
 
 window.onload = () => {
     populaTabela()
-  }
+  };
+
 
 
 function populaTabela(){
     dados = JSON.parse(localStorage.getItem("__dados__")) || []  
+    dados.map((dado) =>{
+        const tableBodyElement = document.querySelector(".tableBody")
+        const trElement = document.createElement('tr')
+        let btnEdit = document.createElement('button')
+        let btnDelete = document.createElement('button')
+
+        
+        
+
+        Object.keys(dado).forEach(key => {
+            const tdElement = document.createElement('td')
+
+            tdElement.innerText = dado[key]
+            trElement.appendChild(tdElement)
+            tableBodyElement.appendChild(trElement)
+
+
+            btnEdit.setAttribute('type', 'button');
+            btnEdit.setAttribute('class', 'btn btn-primary');
+            btnEdit.setAttribute('onclick', 'edit()');
+            btnEdit.innerText = "editar"
+            tdElement.appendChild(btnEdit)
+
+
+            btnDelete.setAttribute('type', 'button');
+            btnDelete.setAttribute('class', 'btn btn-danger');
+            btnDelete.setAttribute('onclick', 'excluir()');
+            btnDelete.innerText = "excluir"
+            tdElement.appendChild(btnDelete);
+        });
+
+
+    });
     
-
-
-
 }
-
-
 
 function salvar(){
 
@@ -25,21 +54,42 @@ function salvar(){
         
         let registro = {}
 
-        registro.Nome = Nome.value;
+        registro.ID = dados.length + 1;
+        registro.Nome =  Nome.value;
         registro.Sobrenome = Sobrenome.value;
         registro.Idade = Idade.value;
         registro.Formacao = Formacao.value;
+        registro.Excluir = document.createElement('input').value;
 
-        registro.ID = dados.length + 1
 
-        localStorage.getItem("__dados__")
+        
+
+        localStorage.getItem("__dados__");
         dados.push(registro)
         localStorage.setItem("__dados__", JSON.stringify(dados));
 
-        alert("Registro feito com sucesso!")
+        alert("Registro feito com sucesso!");
         
-    //aqui fica o cod de limpar os nomes
+    //LIMPA OS NOMES DOS INPUTS
+
+       limpaNome = document.querySelector("#txtNome");
+       limpaNome.value = "";
+
+       limpaSobrenome = document.querySelector("#txtSobrenome");
+       limpaSobrenome.value = ""
+
+       limpaIdade = document.querySelector("#txtIdade");
+       limpaIdade.value = "";
+
+       limpaFormacao = document.querySelector("#txtFormacao");
+       limpaFormacao.value = "";
+}
 
 
+function edit(){
+    alert("editando...")
+}
 
+function excluir (){
+    alert("excluindo...")
 }

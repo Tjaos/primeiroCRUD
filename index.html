@@ -21,17 +21,11 @@
                                 <th scope="col">Sobrenome</th>
                                 <th scope="col">Idade</th>
                                 <th scope="col">Formação</th>
+                                <th scope="col">Ações</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>21</td>
-                                <td>Superior</td>
-                                
-                            </tr>
+                        <tbody class="tableBody">
+                            
                         </tbody>
                         
                     </table>
@@ -57,7 +51,7 @@
 
                 </button>
             </div>
-            <div class="modal-body">
+            <form class="modal-body">
                 <div class="row" id="inputDados"> 
                     <div class="col-md-6">
                         <div class="form-group">
@@ -65,34 +59,37 @@
                             <input id="txtNome" type="text" class="form-control" placeholder="digite o nome...">
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">Sobrenome</label>
                             <input id="txtSobrenome" type="text" class="form-control" placeholder="digite o sobrenome...">
-
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Idade</label>
-                                <input id="txtIdade" type="number" class="form-control">
-                            </div>
 
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Formação</label>
-                                <input id="txtFormacao" type="text" class="form-control" 
-                                placeholder="digite sua formação...">
-                            </div>
 
+                   
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Idade</label>
+                            <input id="txtIdade" type="number" class="form-control">
                         </div>
                     </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Formação</label>
+                            <input id="txtFormacao" type="text" class="form-control" 
+                            placeholder="digite sua formação...">
+                        </div>
+                    </div>
+                    
+                    
                 </div>
-            </div>
+            </form>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 <button id="btnSalvar" type="button" class="btn btn-primary" onclick="salvar()">Salvar</button>
             </div>
         </div>
